@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}{{ topic.title }}{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="topic-container mb-4">
+                <h1 class="topic-title">{{ topic.title }}</h1>
+                <p class="topic-meta">Posted by {{ topic.author.username }} on {{ topic.date_posted.strftime('%B %d, %Y') }}</p>
+                <div class="topic-content">
+                    <p>{{ topic.content }}</p>
+                </div>
+            </div>
+
+            <hr class="my-5">
+
+            <div class="replies-section">
+                <h3 class="mb-4">Replies ({{ replies | length }})</h3>
+                {% for reply in replies %}
+                    <div class="reply-card mb-3">
+                        <p class="reply-meta">Commented by {{ reply.author.username }} on {{ reply.date_posted.strftime('%B %d, %Y') }}</p>
+                        <p class="reply-content">{{ reply.content }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+
+            {% if 'logged_in' in session %}
+                <div class="reply-form-container mt-5">
+                    <h4 class="mb-3">Post a Reply</h4>
+                    <form action="{{ url_for('post_reply', topic_id=topic.id) }}" method="post">
+                        <div class="mb-3">
+                            <textarea class="form-control" id="reply_content" name="content" rows="4" placeholder="Type your reply here..." required></textarea>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary py-2">Submit Reply</button>
+                        </div>
+                    </form>
+                </div>
+            {% else %}
+                <div class="alert alert-info text-center mt-5">
+                    Please <a href="{{ url_for('login') }}">log in</a> or <a href="{{ url_for('signup') }}">sign up</a> to post a reply.
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

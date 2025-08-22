@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome to Nexus Hub{% endblock %}
+
+{% block content %}
+<div class="hero-video-section">
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="{{ url_for('static', filename='video/hero_video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="hero-content text-center text-lg-start">
+    <div class="container">
+        {% if 'username' in session %}
+            <h1 class="display-3 mb-4 text-white">Welcome, {{ session['username'] }}!</h1>
+            <p class="lead mb-5 text-white">
+                This is your central hub for creating new topics and joining the community's discussions.
+            </p>
+        {% else %}
+            <h1 class="display-3 mb-4 text-white">The Central Point of Connection</h1>
+            <p class="lead mb-5 text-white">
+                Nexus Hub is a community for students and developers to connect, share ideas, and build the future together.
+            </p>
+        {% endif %}
+                    <div class="d-flex justify-content-center mb-5">
+    {% if 'username' in session %}
+        <a href="{{ url_for('create_topic') }}" class="btn btn-primary py-3 px-5 me-3 animated slideInLeft">
+            Create New Topic
+        </a>
+    {% else %}
+        <a href="{{ url_for('login') }}" class="btn btn-primary py-3 px-5 me-3 animated slideInLeft">
+            Log In
+        </a>
+        <a href="{{ url_for('signup') }}" class="btn btn-secondary py-3 px-5 animated slideInRight">
+            Sign Up
+        </a>
+    {% endif %}
+           </div>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5 post-section">
+    <h2 class="text-center mb-4">Recent Topics</h2>
+    
+    <div class="row">
+        {% if topics %}
+            {% for topic in topics %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="post-card wow fadeInUp">
+                    <h5 class="post-title">{{ topic.title }}</h5>
+                    <p class="post-meta">Posted by {{ topic.author.username }} on {{ topic.date_posted.strftime('%B %d, %Y') }}</p>
+                    <p class="post-content">{{ topic.content[:100] }}...</p>
+{% if 'username' in session %}
+    <a href="{{ url_for('view_topic', topic_id=topic.id) }}" class="btn btn-primary btn-read-more">Read More & Comment</a>
+{% else %}
+    <a href="{{ url_for('signup') }}" class="btn btn-primary btn-read-more">Read More & Comment</a>
+{% endif %}
+
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p class="text-center">No topics have been posted yet. Be the first!</p>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

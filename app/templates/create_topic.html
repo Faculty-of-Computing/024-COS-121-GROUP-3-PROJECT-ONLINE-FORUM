@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Create New Topic{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card p-4 p-md-5">
+                <h1 class="text-center mb-4">Create New Topic</h1>
+                <form action="{{ url_for('create_topic') }}" method="post">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Topic Title</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="content" class="form-label">Topic Content</label>
+                        <textarea class="form-control" id="content" name="content" rows="10" required></textarea>
+                    </div>
+                    
+                    <div class="d-grid mt-4">
+                        <button type="submit" class="btn btn-primary py-2 px-4">Publish</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

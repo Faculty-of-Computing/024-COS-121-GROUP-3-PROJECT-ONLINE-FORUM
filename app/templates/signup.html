@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="video-background-container">
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="{{ url_for('static', filename='video/hero_video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="overlay"></div>
+    <div class="card p-4 p-md-5 signup-form-card">
+        <h1 class="text-center mb-4 signup-title">Create an Account</h1>
+        <form action="{{ url_for('signup') }}" method="post" class="text-center">
+            <div class="mb-3">
+                <label for="username" class="form-label visually-hidden">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label visually-hidden">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Email address" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label visually-hidden">Password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 py-2">Sign Up</button>
+        </form>
+        <hr class="my-4">
+        <a href="{{ url_for('login') }}" class="btn btn-outline-secondary w-100 py-2">Already have an account? Log In</a>
+    </div>
+</div>
+
+{% endblock %}

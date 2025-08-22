@@ -1,0 +1,291 @@
+/* --- Global Styles --- */
+:root {
+    --brand-color: #007bff; /* A cool, vibrant blue for branding */
+    --accent-color: #28a745; /* A secondary color for accents (e.g., success) */
+    --light-bg: #ffffff; /* Clean white background */
+    --dark-text: #343a40; /* Dark text for readability */
+    --light-text: #6c757d; /* Lighter text for details */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+body {
+    background-color: var(--light-bg);
+    color: var(--dark-text);
+    font-family: 'Heebo', sans-serif;
+    padding-top: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Nunito', sans-serif;
+    color: var(--dark-text);
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background-color: var(--light-bg) !important;
+    box-shadow: 0 4px 6px rgba(0,0,0,.1);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    color: var(--brand-color) !important;
+}
+
+.navbar-toggler {
+    color: var(--brand-color) !important;
+    border-color: var(--brand-color) !important;
+}
+
+.nav-link {
+    color: var(--dark-text) !important;
+    font-weight: 500;
+    position: relative;
+    transition: all 0.3s ease;
+    text-shadow: none;
+}
+
+.nav-link:hover {
+    color: var(--brand-color) !important;
+}
+
+/* --- Hero Section with Video --- */
+.hero-video-section {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: -65px; /* Adjust this value if your navbar height is different */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    object-fit: cover;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.hero-content h1, .hero-content p {
+    color: white !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Buttons & Forms --- */
+.btn-primary {
+    background-color: var(--brand-color);
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary {
+    background-color: var(--light-bg);
+    border: 2px solid var(--light-text);
+    color: var(--dark-text);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--light-text);
+    color: var(--light-bg);
+    transform: translateY(-3px);
+}
+
+/* New: Style for the navbar login button */
+.btn-outline-primary {
+    background-color: var(--light-bg);
+    border: 2px solid var(--brand-color);
+    color: var(--dark-text);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--brand-color);
+    color: var(--light-bg);
+    transform: translateY(-3px);
+}
+
+/* --- Content Sections --- */
+.list-group-item {
+    background-color: var(--light-bg);
+    border: none;
+    border-left: 5px solid var(--brand-color);
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.list-group-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.list-group-item h5 {
+    color: var(--brand-color);
+    font-weight: 700;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--dark-text);
+    color: var(--light-bg);
+    padding: 20px 0;
+}
+
+/* --- Login & Signup Page Styles --- */
+.login-form-card, .signup-form-card {
+    max-width: 450px;
+    width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 10px 25px rgba(0,0,0,.1);
+    background-color: #ffffff;
+    border: none;
+}
+
+.login-title, .signup-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--brand-color);
+}
+
+.form-control {
+    padding: 0.75rem 1.25rem;
+    border-radius: 50px;
+}
+
+.form-control::placeholder {
+    color: var(--light-text);
+}
+
+.btn-primary.w-100 {
+    font-weight: 600;
+}
+
+.btn-outline-secondary {
+    background-color: transparent;
+    border: 2px solid var(--light-text);
+    color: var(--dark-text);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border-radius: 50px;
+}
+
+.btn-outline-secondary:hover {
+    background-color: var(--dark-text);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Video Background for Login/Signup Pages */
+.video-background-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    filter: blur(8px); /* Adjust the blur level as needed */
+    z-index: -2;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Dark overlay for better readability */
+    z-index: -1;
+}
+
+/* --- Recent Posts Section --- */
+.post-section {
+    background-color: var(--light-bg);
+    padding: 50px 0;
+}
+
+.post-card {
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #e0e0e0;
+}
+
+.post-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.1);
+}
+
+.post-title {
+    color: var(--brand-color);
+    font-weight: 700;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    color: var(--light-text);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.post-content {
+    color: var(--dark-text);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.btn-read-more {
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 10px 20px;
+}
